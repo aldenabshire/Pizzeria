@@ -1,0 +1,33 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p>Pizza: {{ pizza }}</p>
+
+<ul>
+    {% for t in toppings %}
+    <li>{{ t.topping_name }}</li>
+    
+    {% empty %}
+    <li>No toppings for this pizza have been added yet.</li>
+    {% endfor %}
+</ul>
+
+
+<a href="{% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>
+
+<ul>
+    {% for c in comments %}
+    <li>{{ c.comment }}</li>
+
+    {% empty %}
+    <li>No comments for this pizza have been added yet.</li>
+    {% endfor %}
+</ul>
+
+<body>
+    <img alt="Pizza" src=https://www.budgetbytes.com/wp-content/uploads/2020/06/BBQ-Chicken-Pizza-one-slice.jpg>
+    <img alt="Pizza" src=https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2014%2F07%2F10%2Fpepperoni-pizza-ck-x.jpg&q=60>
+</body>
+
+{% endblock content %}
